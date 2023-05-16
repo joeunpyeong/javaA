@@ -1,8 +1,0 @@
-package PhoneSimulator;
-
-public class Animal {
-	void move() {
-		int a=3;
-		System.out.println(-a);
-	}
-}

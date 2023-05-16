@@ -1,5 +1,0 @@
-package pack02_phone;
-
-public class PhoneDTO {
-	int input=0, onOff=0;
-}
