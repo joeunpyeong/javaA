@@ -1,0 +1,121 @@
+package pack01_new;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		// 1. 파는 상품 목록 (표시)
+		// 2. 메뉴 숫자를 눌러서 구매
+		// 3. 현재 판매된 누적 금액 표시
+		// 4. 구매자 만들어서 구매자별 누적 금액 표
+		// 5. 종료 조건 (-1) 종료
+		
+		People p1 = new People("홍길동");
+		People p2 = new People("장보고");
+		
+		Store store = new Store();
+
+		
+		for (int i = 0; i < 9999; i++) {
+			int select = store.select();
+			if (select == -1) {	// -1이면 종료.
+				break;
+			} else if (i % 2 == 0) {	// i 가 짝수일 때는 홍길동이 구매.
+				store.sellItem(p1, select);
+			} else {					// i 가 홀수일 때는 장보고가 구매.
+				store.sellItem(p2, select);
+			}
+			System.out.println("----------------------------------------");
+		}
+		System.out.println(p1.name + "이 구매한 총 금액 : " + p1.buyTotal);
+		System.out.println(p2.name + "이 구매한 총 금액 : " + p2.buyTotal);
+	}
+	
+	public class People {
+		int buyTotal = 0;
+		String name;
+		
+		public People(String name) {
+			// TODO Auto-generated constructor stub
+			this.name = name;
+		}
+
+	}
+	
+	public class Item {
+		String name;
+		int price;
+		int stock;
+		
+		public Item(String name, int price, int stock) {
+			// TODO Auto-generated constructor stub
+			this.name = name;
+			this.price = price;
+			this.stock = stock;
+		}
+
+	}
+	
+	public class Store {
+		Item[] menu;
+		int sales = 0;
+		
+		// 1. 생성자. 메뉴를 생성한다.
+		public Store() {
+			// TODO Auto-generated constructor stub
+			menu = new Item[5];
+			menu[0] = new Item("딸기우유", 1000, 10);
+			menu[1] = new Item("샌드위치", 2000, 5);
+			menu[2] = new Item("메로나", 800, 20);
+			menu[3] = new Item("풍선껌", 500, 2);
+			menu[4] = new Item("크림빵", 1000, 5);
+		}
+		
+		// 2. 메뉴를 출력하는 메소드.
+		public void showMenu() {
+			for (int i = 0; i < menu.length; i++) {
+				System.out.println((i + 1) + ". " + menu[i].name + " : " + menu[i].price);
+			}
+		}
+		
+		// 3. 메뉴를 선택하는 메소드.	
+		int selectNumber;
+		
+		public int select() {
+			Scanner s = new Scanner(System.in);
+			for (int i = 0; i < 99; i++) {
+				this.showMenu();
+				System.out.println("구매하고 싶은 메뉴 번호를 입력해주세요. -1 입력 시 종료.");
+				try {
+					selectNumber = Integer.parseInt(s.nextLine());
+					if (selectNumber == -1) {
+						return -1;
+					} else if (selectNumber >= 1 && selectNumber <= 5) {
+						return (selectNumber - 1);
+					} else {
+						System.out.println("메뉴 버튼의 숫자만 입력해주세요.");
+						continue;
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("메뉴 버튼의 숫자만 입력해주세요.");
+				}
+			}
+			return -1;
+		}
+
+		
+		public void sellItem(People people, int number) {
+			if (menu[number].stock < 1) {
+				System.out.println("재고가 부족합니다.");
+			} else {
+				this.sales = this.sales + menu[number].price;
+				menu[number].stock--;
+				System.out.println("판매된 총 금액 : " + this.sales);
+				people.buyTotal = people.buyTotal + menu[number].price;
+				System.out.println(menu[number].name + "이(가) " + people.name + "에게 판매되었습니다.");
+			}
+		}
+		
+	}
+}

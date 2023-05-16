@@ -1,0 +1,12 @@
+package dao.dto.method;
+
+public class Method {
+	public static void main(String[] args) {
+		Method mt = new Method();
+		
+	}
+	// void : x : 현실에서 어떤 지시를 했을때 그 결과가 필요없는 경우
+	// return : 현실에서 어떤 지시를 했을때 그 결과가 필요한 경우
+	
+	
+}

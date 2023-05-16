@@ -1,0 +1,11 @@
+package pack01_new;
+
+public class User {
+
+	int buyTotal = 0;
+	String name;
+		
+	public class People(String name) {
+		this.name = name;
+	}
+}

@@ -1,0 +1,24 @@
+package pack01_new;
+
+public class Item {
+	String name,info;
+	int price;
+	int stock;
+	int power, agi, inte, nar, app, hp;
+	public Item(String name, String info, int price, int stock, int power,
+					int agi, int inte, int nar, int app,int hp) {
+		this.name = name;
+		this.info = info;
+		this.price = price;
+		this.stock = stock;
+		this.power = power;
+		this.agi = agi;
+		this.inte = inte;
+		this.nar = nar;
+		this.app = app;
+		this.hp = hp;
+	}
+
+
+
+}

@@ -1,0 +1,30 @@
+package pack01.inputstream;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+public class JepScanner {
+	private InputStream in;
+	private BufferedReader br;
+	
+	public JepScanner(InputStream in) {
+		super();
+		this.in = in;
+		br=new BufferedReader(new InputStreamReader(in));
+	}
+	
+	public String nextLine(){
+		try {
+			String inputData = br.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return br.readLine();
+	}
+	
+	
+	
+}

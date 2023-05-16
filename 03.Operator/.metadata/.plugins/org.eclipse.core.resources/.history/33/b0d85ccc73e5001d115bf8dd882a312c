@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class ex_dao {
+	 static Scanner sc = new Scanner(System.in);
+	 
+	//음성 발신 
+	public static void messageSend() {
+		System.out.print("  나  :");
+		sc.nextLine();
+	}
+	//음성 수신
+	public static void messageReceive() {
+		System.out.print("상대방:");
+		sc.nextLine();
+	}
+}
