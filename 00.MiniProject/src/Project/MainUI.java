@@ -74,12 +74,6 @@ public class MainUI extends  JFrame {
 			System.exit(0);
 		});
 
-
-
-
-		
-		
-
 		jf.setVisible(true);
 		
 	}

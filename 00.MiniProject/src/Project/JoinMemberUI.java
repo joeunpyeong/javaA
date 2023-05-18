@@ -22,7 +22,7 @@ public class JoinMemberUI extends JFrame {
 	String random;
 	DBC dbc = new DBC();
 	boolean mailCertification;
-	private JTextField ageJTF, emailJTF, emailCodeJTF, idJTF, pwJTF, genderJTF;
+	private JTextField ageJTF, emailJTF, codeJTF, idJTF, pwJTF, genderJTF;
 
 	public JoinMemberUI(){
 		JFrame jf= new JFrame();
@@ -93,9 +93,9 @@ public class JoinMemberUI extends JFrame {
 		jf.getContentPane().add(eCodeLabel);
 		
 		//email코드 입력
-		emailCodeJTF = new JTextField();
-		emailCodeJTF.setBounds(142, 234, 130, 30);
-		jf.getContentPane().add(emailCodeJTF);
+		codeJTF = new JTextField();
+		codeJTF.setBounds(142, 234, 130, 30);
+		jf.getContentPane().add(codeJTF);
 		
 		//아이디 라벨
 		JLabel idLabel = new JLabel("아이디 : ");
@@ -250,19 +250,17 @@ public class JoinMemberUI extends JFrame {
 	}
 	
 	private boolean contrastCode() {
-		System.out.println(emailCodeJTF.getText().toString());
+		System.out.println(codeJTF.getText().toString());
 		System.out.println(random);
-		if(emailCodeJTF.getText().toString().equals(random)) {
+		if(codeJTF.getText().toString().equals(random)) {
 			JOptionPane.showMessageDialog(null, "코드 인증을 성공했습니다.","You success to code certification",JOptionPane.PLAIN_MESSAGE);
 			emailJTF.setEnabled(false);
-			emailCodeJTF.setEnabled(false);
+			codeJTF.setEnabled(false);
 			return true;
 		}else {
 			JOptionPane.showMessageDialog(null, "코드 인증을 실패했습니다.", "You failed to code certification", JOptionPane.ERROR_MESSAGE);
 			return false;
-			
 		}
-		
 	}
 
 	private void joinMember(String name, int age, String gender,String email, String id, String pw) {
