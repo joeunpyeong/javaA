@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>PageContext : <%=pageContext.getAttribute("pageCtx") %>
+	<p>request : <%=request.getAttribute("req") %>
+	<p>session : <%=session.getAttribute("session") %>
+	<p>application : <%=application.getAttribute("app") %>
+</body>
+</html>

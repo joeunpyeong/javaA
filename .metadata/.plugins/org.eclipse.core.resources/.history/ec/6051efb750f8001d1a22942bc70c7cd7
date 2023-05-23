@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>스코프 (데이터 전달 범위)</h1>
+	<p>데이터를 전달하는 범위가 각각의 스코프(비율, 배율)마다 차이가 있음</p>	
+	<p>많은 데이터를 사용하지 않음. 계속 전달을 하면 메모리에 기억을 해두고 유지를 해야함</p>
+	<p>많은 데이터를 사용하는 경우, 계속 메모리에 누적시켜두면 홈페이지 자체가 느려짐 ex) employees의 모든 내용.</p>
+	
+</body>
+</html>
